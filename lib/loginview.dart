@@ -11,9 +11,13 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppBar(
-        title: Text("hi"),
-      ),
-    );
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextField(),
+        TextField(),
+        ElevatedButton(onPressed: () {}, child: Text("Login")),
+      ],
+    ));
   }
 }
