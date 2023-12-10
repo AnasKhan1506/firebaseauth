@@ -46,7 +46,7 @@ class _LoginViewState extends State<LoginView> {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Register()));
           },
-          child: Text("Already have an account.?"),
+          child: Text("Already have an account?"),
         )
       ],
     ));

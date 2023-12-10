@@ -12,14 +12,18 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isLoginIn = false;
 
   registerUser() async {
     try {
+      isLoginIn = true;
+      setState(() {});
       final credential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
+
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Homeview()));
     } on FirebaseAuthException catch (e) {
@@ -29,6 +33,8 @@ class _RegisterState extends State<Register> {
         print('The account already exists for that email.');
       }
     } catch (e) {
+      isLoginIn = false;
+      setState(() {});
       print(e);
     }
   }
@@ -46,6 +52,7 @@ class _RegisterState extends State<Register> {
                 registerUser();
               },
               child: Text("Register")),
+          Visibility(visible: isLoginIn, child: CircularProgressIndicator()),
         ],
       ),
     );
