@@ -11,7 +11,7 @@ class Homeview extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("Welcome to home"),
+          Text("Welcome to Home"),
           InkWell(
             onTap: () {
               FirebaseAuth.instance.signOut();
