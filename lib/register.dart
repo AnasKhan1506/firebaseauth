@@ -28,7 +28,7 @@ class _RegisterState extends State<Register> {
           context, MaterialPageRoute(builder: (context) => Homeview()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        print('the password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
       }
